@@ -54,27 +54,40 @@ export class MoviesComponent implements OnInit {
   // ];
   movies: Movie[];
   passedData: string;
+  pageSize: number = 10;
+  page: number = 1;
+  collectionSize: number;
+
   constructor(private moviesDatabaseService: MoviesDatabaseService){}
 
   ngOnInit(): void {
     
   }
 
-  searchMovies(searchString: string){
-    this.passedData = searchString
-    // this.moviesDatabaseService.test();
+  searchMovies(searchString: string, page: number){
+    this.passedData = searchString;
+    this.page = page;
     console.log("Passed Data", this.passedData)
-
-    this.moviesDatabaseService.searchMovies(searchString).subscribe((response)=> {
+    console.log("this.page", this.page)
+    console.log("page parameter", page)
+    this.moviesDatabaseService.searchMovies(searchString, page).subscribe((response)=> {
       console.log(response)
       console.log(response.Search)
       if(response.Response === "False"){
         alert(response.Error);
+        this.resetValues();
         return;
       }
+      this.collectionSize = Number(response.totalResults);
+      console.log("collectionSize", this.collectionSize)
       // console.log(typeof response.totalResults)
       this.movies = [ ...response.Search ]
       console.log("this.movies", this.movies[0])
     });
+  }
+  resetValues(): void{
+    this.passedData = '';
+    this.movies = [];
+    this.collectionSize = 0;
   }
 }

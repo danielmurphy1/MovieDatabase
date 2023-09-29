@@ -1,2 +1,11 @@
-<app-search-movies (onSearchMovies)="searchMovies($event)"></app-search-movies>
+<app-search-movies (onSearchMovies)="searchMovies($event, 1)"></app-search-movies>
+<ngb-pagination 
+    *ngIf="collectionSize > 0" 
+    [(page)]="page" 
+    [pageSize]="pageSize" 
+    [collectionSize]="collectionSize" 
+    [maxSize]="10" 
+    [rotate]="true" 
+    (pageChange)="searchMovies(passedData, page)">
+</ngb-pagination>
 <app-search-results [inboundMovies]="movies"></app-search-results>
