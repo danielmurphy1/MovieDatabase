@@ -1,11 +1,11 @@
 <!-- <p *ngFor="let movie of inboundMovies">{{ movie.title }}</p> -->
 <div class="d-flex flex-wrap justify-content-around">
     <div *ngFor="let movie of inboundMovies" class="card mb-2" style="width: 18rem">
-        <img src="{{movie.poster}}" style="height: 18rem">
+        <img src="{{movie.Poster}}" style="height: 18rem">
         <div class="card-body">
-            <h5 style="width: auto;">{{ movie.title }}</h5>
-            <p>{{ movie.year }}</p>
-            <a href="{{ imdbAddress }}{{ movie.imdbNumber }}" target="_blank">Visit on IMDB</a>
+            <h5 style="width: auto;">{{ movie.Title }}</h5>
+            <p>{{ movie.Year }}</p>
+            <a href="{{ imdbAddress }}{{ movie.imdbID }}" target="_blank">Visit on IMDB</a>
         </div>
     </div>
 </div>
