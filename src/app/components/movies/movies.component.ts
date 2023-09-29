@@ -65,24 +65,19 @@ export class MoviesComponent implements OnInit {
   }
 
   searchMovies(searchString: string, page: number){
-    this.passedData = searchString;
+    this.passedData = searchString.trim();
     this.page = page;
     console.log("Passed Data", this.passedData)
     console.log("this.page", this.page)
     console.log("page parameter", page)
     this.moviesDatabaseService.searchMovies(searchString, page).subscribe((response)=> {
-      console.log(response)
-      console.log(response.Search)
       if(response.Response === "False"){
-        alert(response.Error);
+        alert("Not Found. Check your search text.");
         this.resetValues();
         return;
       }
       this.collectionSize = Number(response.totalResults);
-      console.log("collectionSize", this.collectionSize)
-      // console.log(typeof response.totalResults)
-      this.movies = [ ...response.Search ]
-      console.log("this.movies", this.movies[0])
+      this.movies = [ ...response.Search ];
     });
   }
   resetValues(): void{

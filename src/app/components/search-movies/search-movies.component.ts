@@ -16,7 +16,7 @@ export class SearchMoviesComponent implements OnInit{
   }
 
   handleSearchButtonClick(searchString: string): void{
-    console.log(searchString)
-    this.onSearchMovies.emit(searchString);
+    //will not return correctly if whitespace at beginning or end of string
+    this.onSearchMovies.emit(searchString.trim());
   }
 }
