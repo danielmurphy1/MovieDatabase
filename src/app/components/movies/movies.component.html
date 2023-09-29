@@ -1,1 +1,2 @@
-<app-search-movies></app-search-movies>
+<app-search-movies (onSearchMovies)="searchMovies($event)"></app-search-movies>
+<app-search-results [inboundMovies]="movies"></app-search-results>

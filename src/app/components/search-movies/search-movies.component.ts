@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-search-movies',
@@ -7,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchMoviesComponent implements OnInit{
   movieName: string;
+  @Output() onSearchMovies: EventEmitter<string> = new EventEmitter();
 
   constructor() {}
 
   ngOnInit(): void {
     
+  }
+
+  handleSearchButtonClick(searchString: string): void{
+    console.log(searchString)
+    this.onSearchMovies.emit(searchString);
   }
 }
