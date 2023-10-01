@@ -1,1 +1,19 @@
-<p>search-history works!</p>
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead class="table-light">
+            <tr>
+                <th>Searched Item</th>
+                <th>Date/Time</th>
+                <th>Number of Results</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of historyItems">
+                <td>{{ item.searchString }}</td>
+                <td>{{ item.date }}</td>
+                <td>{{ item.results }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <a routerLink="/">Return To Search</a>
+</div>
