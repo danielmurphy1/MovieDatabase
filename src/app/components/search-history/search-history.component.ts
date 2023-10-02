@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { LocalStorageService } from '../../services/local-storage.service';
+import { SearchHistoryItem } from '../../SearchHistoryItem';
 
 @Component({
   selector: 'app-search-history',
@@ -6,26 +8,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./search-history.component.css']
 })
 export class SearchHistoryComponent implements OnInit{
-  historyItems = [
-    {
-      searchString: "Test", 
-      date: new Date().toLocaleString(),
-      results: 17
-    },
-    {
-      searchString: "Test1", 
-      date: new Date().toLocaleString(),
-      results: 17
-    },
-    {
-      searchString: "Test2", 
-      date: new Date().toLocaleString(),
-      results: 17
-    },
-  ]
-  constructor() {}
+  historyItems: SearchHistoryItem[];
+  constructor(private local: LocalStorageService) {}
 
   ngOnInit(): void {
-    
+    this.historyItems = this.local.getLocal();
   }
 }
