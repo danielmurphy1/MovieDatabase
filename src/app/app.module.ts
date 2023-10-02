@@ -14,7 +14,8 @@ import { SearchHistoryComponent } from './components/search-history/search-histo
 
 const routes: Routes = [
   { path: '', component: MoviesComponent }, 
-  { path: 'history', component: SearchHistoryComponent}
+  { path: 'history', component: SearchHistoryComponent},
+  { path: '**', component: MoviesComponent }
 ]
 
 @NgModule({

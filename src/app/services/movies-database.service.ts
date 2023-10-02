@@ -23,7 +23,7 @@ export class MoviesDatabaseService {
   constructor(private http: HttpClient) { }
 
   searchMovies(searchString: string, page: number): Observable<MovieSearchResponse>{
-    const url: string = `http://omdbapi.com/?apikey=${this.apiKey}&s=${searchString}&type=movie&page=${page}`;
+    const url: string = `https://omdbapi.com/?apikey=${this.apiKey}&s=${searchString}&type=movie&page=${page}`;
     
     return this.http.get<MovieSearchResponse>(url);
   }
