@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { API_KEY } from '../ApiKey';
-import { HttpClient,HttpResponse } from '@angular/common/http'
+import { HttpClient} from '@angular/common/http'
 import { Observable } from 'rxjs';
-import { Movie } from '../Movie';
 
 interface MovieSearchResponse {
   Search: [],
@@ -24,7 +23,7 @@ export class MoviesDatabaseService {
   constructor(private http: HttpClient) { }
 
   searchMovies(searchString: string, page: number): Observable<MovieSearchResponse>{
-    const url: string = `http://omdbapi.com/?apikey=${API_KEY}&s=${searchString}&type=movie&page=${page}`;
+    const url: string = `http://omdbapi.com/?apikey=${this.apiKey}&s=${searchString}&type=movie&page=${page}`;
     
     return this.http.get<MovieSearchResponse>(url);
   }
