@@ -9,6 +9,9 @@ import { SearchHistoryItem } from '../../SearchHistoryItem';
 })
 export class SearchHistoryComponent implements OnInit{
   historyItems: SearchHistoryItem[];
+  page: number = 1;
+  pageSize: number = 10;
+  collectionSize: number;
   constructor(private local: LocalStorageService) {}
 
   ngOnInit(): void {
