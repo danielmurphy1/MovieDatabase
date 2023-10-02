@@ -1,8 +1,8 @@
 <form #searchForm="ngForm" class="mt-2 mb-3" (ngSubmit)="handleSearchButtonClick(movieName); searchForm.resetForm()">
     <div class="d-lg-flex justify-content-around">
         <label for="movieName" class="form-label">Search Movie Name: </label>
-        <input type="text" class="form-control mb-2 mb-lg-0" name="movieName" id="movieName" [(ngModel)]="movieName" required/>
-        <button type="submit" class="btn btn-danger" [disabled]="!searchForm.valid">Search</button>
+        <input type="text" class="form-control mb-2 mb-lg-0 shadow" name="movieName" id="movieName" [(ngModel)]="movieName" required/>
+        <button type="submit" class="btn btn-primary shadow" [disabled]="!searchForm.valid">Search</button>
     </div>
 </form>
-<button class="btn btn-danger mb-2" routerLink="/history">Search History</button>
+<button class="btn btn-primary mb-2 shadow" routerLink="/history">Search History</button>
