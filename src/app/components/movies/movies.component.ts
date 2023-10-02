@@ -25,9 +25,6 @@ export class MoviesComponent implements OnInit {
   searchMovies(searchString: string, page: number){
     this.passedData = searchString.trim();
     this.page = page;
-    console.log("Passed Data", this.passedData)
-    console.log("this.page", this.page)
-    console.log("page parameter", page)
     this.moviesDatabaseService.searchMovies(searchString, page).subscribe((response)=> {
       if(response.Response === "False"){
         alert("Not Found. Check your search text.");
