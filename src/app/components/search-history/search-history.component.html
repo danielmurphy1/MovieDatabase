@@ -2,6 +2,8 @@
     *ngIf="historyItems.length > 0"
     [(page)]="page" 
     [pageSize]="pageSize" 
+    [maxSize]="5" 
+    [rotate]="true" 
     [collectionSize]="historyItems.length">
 </ngb-pagination>
 <div class="table-responsive">
