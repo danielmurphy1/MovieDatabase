@@ -23,7 +23,7 @@ To Use Locally or Accessing at Below Link
 The user can search by full or partial movie name to return movies that match the search string. Click on the button to see your past searches. Search history is saved and local storage, and can be cleared using the `localStorage.clear()` method in the dev tools console, or by manually deleting from local storage in dev tools.
 
 
-Access the app [here](https://dmurphy-moviedatabase.netlify.app/history)
+Access the app [here](https://dmurphy-moviedatabase.netlify.app)
 
 ### Summary
 
